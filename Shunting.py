@@ -2,7 +2,7 @@
 
 def shunt(infix):
 
-    specails = {'*': 50,'.': 40,'|': 30}
+    specails = {'*': 50, '.': 40, '|': 30, '+': 50, '?': 50}
 
     pofix = ""
     stack = ""
@@ -25,6 +25,7 @@ def shunt(infix):
     while stack:
         pofix, stack = pofix + stack[-1],stack[:-1]
 
+    #print("postfix: "+pofix)
     return pofix
 
-print(shunt("(a.b)|(c*.d)"))
+

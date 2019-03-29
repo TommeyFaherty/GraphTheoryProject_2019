@@ -41,8 +41,11 @@ def match(infix, string):
         next = set()
 
     return (nfa.accept in current)
-string = {"ab","ac","abc","a","acc","abb"}
-#infixes = {"a.(b|c*)",
 
-for s in string:
-    print(s,match("a.(b|c+)",s))
+string = {"a","b","c","aab","acc","abb","ab","abab",""}
+infixes = {"(a.b)*","a.(b|c*)","(a.b)|c","(a?).(b|c)"}
+
+for i in infixes:
+    print("======================\nPostfix: "+shunt(i)+"\n======================")
+    for s in string:
+        print(s,match(i,s))
